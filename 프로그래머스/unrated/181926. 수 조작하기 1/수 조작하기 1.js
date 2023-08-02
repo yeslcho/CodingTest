@@ -1,16 +1,14 @@
 function solution(n, control) {
-    return [...control].reduce((acc, cur) => {
-        switch(cur) {
-            case 'w':
-                return acc+1
-            case 's':
-                return acc-1
-            case 'd':
-                return acc+10
-            case 'a':
-                return acc-10
-            default:
-                return acc
-        }
-    }, n)
+  for (i = 0; i < control.length; i++) {
+    if (control[i] === 'w') {
+      n += 1;
+    } else if (control[i] === 's') {
+      n -= 1;
+    } else if (control[i] === 'd') {
+      n += 10;
+    } else if (control[i] === 'a') {
+      n -= 10;
+    }
+  }
+  return n;
 }
