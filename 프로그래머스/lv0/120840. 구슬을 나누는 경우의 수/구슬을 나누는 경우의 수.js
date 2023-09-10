@@ -2,18 +2,18 @@ function solution(balls, share) {
     var answer = 0;
     
     const n = balls;
-    const r = share;
+    const m = share;
     
     let one = 1;
-    for(let i=n; i>=n-r+1; i--){
+    for(let i=n; i>=n-m+1; i--){
         one *= i;
     }
     
-    let three = 1;
-    for(let i=r; i>=1; i--){
-        three *= i;
+    let two = 1;
+    for(let i=m; i>=1; i--){
+        two *= i;
     }
     
-    answer = Math.floor(one / three)
+    answer = Math.floor(one / two)
     return answer;
 }
