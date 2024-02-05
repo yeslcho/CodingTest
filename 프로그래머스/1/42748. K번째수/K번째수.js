@@ -1,11 +1,9 @@
 function solution(array, commands) {
     var answer = [];
     
-    for(var i=0; i<commands.length;i++){
-        var list = array.slice(commands[i][0]-1, commands[i]
-        							[1]).sort((a,b)=>{return a-b});
-        
-        answer.push(list[commands[i][2]-1]);
+    for (const command of commands) {
+        const [start, end, answerIdx] = command;
+        answer.push(array.slice(start - 1, end).sort((a, b) => a - b)[answerIdx-1]);
     }
 
     return answer;
