@@ -1,11 +1,16 @@
-function solution(s){ 
-    let cnt = 0;
+function solution(s) {
+    const stack = [];
 
-    for (let i=0; i<s.length; i++) {
-        s[i] === "(" ? cnt += 1 : cnt +=  -1 
-        if (cnt < 0) {
-            break;
+    for (const char of s) {
+        if (char === '(') {
+            stack.push(char);
+        } else { // char === ')'
+            if (stack.length === 0) {
+                return false; // 스택이 비어있으면 false
+            }
+            stack.pop();
         }
     }
-    return cnt === 0 ? true : false
+
+    return stack.length === 0; // 스택이 비어있으면 true, 아니면 false
 }
