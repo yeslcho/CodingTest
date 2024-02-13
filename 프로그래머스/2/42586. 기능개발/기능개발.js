@@ -1,19 +1,20 @@
 function solution(progresses, speeds) {
     let answer = [];
-    let days = progresses.map((progress, index) => Math.ceil((100 - progress) / speeds[index]));
-    let maxDay = days[0];
-
-    let count = 0;
-    for (let i = 0; i < days.length; i++) {
-        if (days[i] <= maxDay) {
-            count++;
-        } else {
-            answer.push(count);
-            count = 1;
-            maxDay = days[i];
+    //남은 일수를 담은 배열
+    let days = progresses.map((el, index) => Math.ceil((100-el) / speeds[index]));
+    let max = days[0];
+    let cnt = 0;
+    
+    for(let i = 0; i < days.length; i++){
+        if(days[i] <= max){
+            cnt++;
+        }else{
+            max = days[i];
+            answer.push(cnt);
+            cnt = 1;
         }
     }
-    answer.push(count);
-
+    answer.push(cnt);
+    
     return answer;
 }
